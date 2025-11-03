@@ -74,6 +74,7 @@ module "talos_cluster" {
 ### Libvirt
 - `libvirt_pool` - Storage pool name (default: "default")
 - `libvirt_uri` - Connection URI (default: "qemu:///system")
+- `autostart` - VMs automatically start on host boot (default: true)
 
 ## Outputs
 

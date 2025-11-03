@@ -27,6 +27,9 @@ Demonstrates usage of the Talos-booter module to bootstrap VMs (1 control plane 
    # Optional: customize resources, networking, node naming, etc.
    # See terraform.tfvars.example for all available options
 
+   # VMs will autostart on host boot by default (autostart = true)
+   # To disable: autostart = false
+
    # For remote libvirt over SSH:
    # libvirt_uri = "qemu+ssh://user@host/system?keyfile=/path/to/ssh/key"
    ```

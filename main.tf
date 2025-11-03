@@ -39,10 +39,11 @@ resource "libvirt_volume" "control_plane_disk" {
 }
 
 resource "libvirt_domain" "control_plane" {
-  count  = var.control_plane_count
-  name   = "${var.cluster_name}-${var.control_plane_suffix}${format("%02d", count.index + 1)}"
-  memory = var.control_plane_memory
-  vcpu   = var.control_plane_vcpu
+  count     = var.control_plane_count
+  name      = "${var.cluster_name}-${var.control_plane_suffix}${format("%02d", count.index + 1)}"
+  memory    = var.control_plane_memory
+  vcpu      = var.control_plane_vcpu
+  autostart = var.autostart
 
   disk {
     volume_id = libvirt_volume.control_plane_disk[count.index].id
@@ -92,10 +93,11 @@ resource "libvirt_volume" "worker_disk_secondary" {
 }
 
 resource "libvirt_domain" "worker" {
-  count  = var.worker_count
-  name   = "${var.cluster_name}-${var.worker_suffix}${format("%02d", count.index + 1)}"
-  memory = var.worker_memory
-  vcpu   = var.worker_vcpu
+  count     = var.worker_count
+  name      = "${var.cluster_name}-${var.worker_suffix}${format("%02d", count.index + 1)}"
+  memory    = var.worker_memory
+  vcpu      = var.worker_vcpu
+  autostart = var.autostart
 
   disk {
     volume_id = libvirt_volume.worker_disk_primary[count.index].id

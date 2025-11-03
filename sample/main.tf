@@ -41,4 +41,5 @@ module "talos_cluster" {
 
   # Libvirt configuration
   libvirt_pool = var.libvirt_pool
+  autostart    = var.autostart
 }

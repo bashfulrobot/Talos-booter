@@ -103,3 +103,9 @@ variable "libvirt_uri" {
   type        = string
   default     = "qemu:///system"
 }
+
+variable "autostart" {
+  description = "Whether VMs should automatically start when the host boots"
+  type        = bool
+  default     = true
+}

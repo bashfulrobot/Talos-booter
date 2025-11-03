@@ -24,6 +24,7 @@ iso_path     = "/var/lib/libvirt/images/talos.iso"
 
 # Libvirt configuration
 # libvirt_pool = "default"
+# autostart    = true
 
 # For local libvirt (default):
 # libvirt_uri = "qemu:///system"
