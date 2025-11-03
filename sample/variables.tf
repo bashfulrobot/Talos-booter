@@ -44,6 +44,18 @@ variable "control_plane_memory" {
   default     = 4096
 }
 
+variable "control_plane_disk_size" {
+  description = "Disk size in bytes for control plane nodes"
+  type        = number
+  default     = 107374182400 # 100GB
+}
+
+variable "control_plane_suffix" {
+  description = "Suffix for control plane node names"
+  type        = string
+  default     = "cp"
+}
+
 variable "worker_count" {
   description = "Number of worker nodes"
   type        = number
@@ -60,6 +72,24 @@ variable "worker_memory" {
   description = "Memory in MB for worker nodes"
   type        = number
   default     = 8192
+}
+
+variable "worker_disk_primary_size" {
+  description = "Primary disk size in bytes for worker nodes"
+  type        = number
+  default     = 107374182400 # 100GB
+}
+
+variable "worker_disk_secondary_size" {
+  description = "Secondary disk size in bytes for worker nodes"
+  type        = number
+  default     = 214748364800 # 200GB
+}
+
+variable "worker_suffix" {
+  description = "Suffix for worker node names"
+  type        = string
+  default     = "wk"
 }
 
 variable "libvirt_pool" {

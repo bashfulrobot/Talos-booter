@@ -1,6 +1,6 @@
 # Required variables
 cluster_name = "dev-lab"
-iso_path     = "/path/to/talos.iso"
+iso_path     = "/var/lib/libvirt/images/talos.iso"
 
 # Network configuration
 # network_type    = "route"
@@ -8,14 +8,19 @@ iso_path     = "/path/to/talos.iso"
 # network_gateway = "172.29.187.1"
 
 # Control plane configuration
-# control_plane_count  = 3
-# control_plane_vcpu   = 4
-# control_plane_memory = 4096
+# control_plane_count     = 3
+# control_plane_vcpu      = 4
+# control_plane_memory    = 4096
+# control_plane_disk_size = 107374182400 # 100GB
+# control_plane_suffix    = "cp"
 
 # Worker configuration
-# worker_count  = 3
-# worker_vcpu   = 4
-# worker_memory = 8192
+# worker_count               = 3
+# worker_vcpu                = 4
+# worker_memory              = 8192
+# worker_disk_primary_size   = 107374182400 # 100GB
+# worker_disk_secondary_size = 214748364800 # 200GB
+# worker_suffix              = "wk"
 
 # Libvirt configuration
 # libvirt_pool = "default"

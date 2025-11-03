@@ -25,14 +25,19 @@ module "talos_cluster" {
   network_gateway = var.network_gateway
 
   # Control plane configuration
-  control_plane_count  = var.control_plane_count
-  control_plane_vcpu   = var.control_plane_vcpu
-  control_plane_memory = var.control_plane_memory
+  control_plane_count     = var.control_plane_count
+  control_plane_vcpu      = var.control_plane_vcpu
+  control_plane_memory    = var.control_plane_memory
+  control_plane_disk_size = var.control_plane_disk_size
+  control_plane_suffix    = var.control_plane_suffix
 
   # Worker configuration
-  worker_count  = var.worker_count
-  worker_vcpu   = var.worker_vcpu
-  worker_memory = var.worker_memory
+  worker_count               = var.worker_count
+  worker_vcpu                = var.worker_vcpu
+  worker_memory              = var.worker_memory
+  worker_disk_primary_size   = var.worker_disk_primary_size
+  worker_disk_secondary_size = var.worker_disk_secondary_size
+  worker_suffix              = var.worker_suffix
 
   # Libvirt configuration
   libvirt_pool = var.libvirt_pool
