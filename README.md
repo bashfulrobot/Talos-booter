@@ -51,14 +51,29 @@ module "talos_cluster" {
 
 ## Key Optional Variables
 
-- `control_plane_count` - Number of control plane nodes (default: 3)
-- `worker_count` - Number of worker nodes (default: 3)
-- `control_plane_memory` - Memory in MB (default: 4096)
-- `worker_memory` - Memory in MB (default: 8192)
+### Network
+- `network_type` - Network mode (default: "route")
 - `network_cidr` - Network CIDR (default: "172.29.187.0/24")
-- `libvirt_pool` - Storage pool name (default: "default")
+- `network_gateway` - Gateway IP (default: "172.29.187.1")
 
-See variables.tf for complete list.
+### Control Plane
+- `control_plane_count` - Number of nodes (default: 3)
+- `control_plane_vcpu` - vCPUs per node (default: 4)
+- `control_plane_memory` - Memory in MB (default: 4096)
+- `control_plane_disk_size` - Disk size in bytes (default: 107374182400 = 100GB)
+- `control_plane_suffix` - Node name suffix (default: "cp")
+
+### Worker
+- `worker_count` - Number of nodes (default: 3)
+- `worker_vcpu` - vCPUs per node (default: 4)
+- `worker_memory` - Memory in MB (default: 8192)
+- `worker_disk_primary_size` - Primary disk size in bytes (default: 107374182400 = 100GB)
+- `worker_disk_secondary_size` - Secondary disk size in bytes (default: 214748364800 = 200GB)
+- `worker_suffix` - Node name suffix (default: "wk")
+
+### Libvirt
+- `libvirt_pool` - Storage pool name (default: "default")
+- `libvirt_uri` - Connection URI (default: "qemu:///system")
 
 ## Outputs
 
