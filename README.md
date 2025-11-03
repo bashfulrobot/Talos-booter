@@ -19,7 +19,7 @@ Creates a complete Talos Linux cluster environment with configurable control pla
 
 ```hcl
 module "talos_cluster" {
-  source = "github.com/YOUR_USERNAME/Talos-booter"
+  source = "github.com/bashfulrobot/Talos-booter"
 
   cluster_name = "dev-lab"
   iso_path     = "/path/to/talos.iso"
@@ -33,7 +33,7 @@ module "talos_cluster" {
 
 ```hcl
 module "talos_cluster" {
-  source = "github.com/YOUR_USERNAME/Talos-booter"
+  source = "github.com/bashfulrobot/Talos-booter"
 
   cluster_name = "dev-lab"
   iso_path     = "/path/to/talos.iso"
