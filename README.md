@@ -12,6 +12,7 @@ Boots VMs with Talos Linux ISO images, creating an infrastructure foundation rea
 - libvirt/KVM
 - Talos Linux ISO
 - libvirt storage pool (default: "default")
+- Host CPU with x86-64-v2 or higher microarchitecture level (required by Talos Linux)
 
 ## Usage
 
@@ -75,6 +76,10 @@ module "talos_cluster" {
 - `libvirt_pool` - Storage pool name (default: "default")
 - `libvirt_uri` - Connection URI (default: "qemu:///system")
 - `autostart` - VMs automatically start on host boot (default: true)
+
+## CPU Configuration
+
+VMs are configured with `cpu { mode = "host-model" }` to ensure modern CPU features and x86-64-v2+ microarchitecture level required by Talos Linux. This clones the host CPU model while maintaining migration compatibility between similar hosts.
 
 ## Outputs
 

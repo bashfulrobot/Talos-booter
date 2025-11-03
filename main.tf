@@ -45,6 +45,10 @@ resource "libvirt_domain" "control_plane" {
   vcpu      = var.control_plane_vcpu
   autostart = var.autostart
 
+  cpu {
+    mode = "host-model"
+  }
+
   disk {
     volume_id = libvirt_volume.control_plane_disk[count.index].id
   }
@@ -98,6 +102,10 @@ resource "libvirt_domain" "worker" {
   memory    = var.worker_memory
   vcpu      = var.worker_vcpu
   autostart = var.autostart
+
+  cpu {
+    mode = "host-model"
+  }
 
   disk {
     volume_id = libvirt_volume.worker_disk_primary[count.index].id
