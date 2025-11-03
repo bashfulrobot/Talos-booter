@@ -42,7 +42,7 @@ provider "libvirt" {
 - `worker_count` - Number of worker nodes (default: 3)
 - `control_plane_memory` - Memory in MB (default: 4096)
 - `worker_memory` - Memory in MB (default: 8192)
-- `network_cidr` - Network CIDR (default: "10.0.0.0/24")
+- `network_cidr` - Network CIDR (default: "172.29.187.0/24")
 - `libvirt_pool` - Storage pool name (default: "default")
 
 See variables.tf for complete list.

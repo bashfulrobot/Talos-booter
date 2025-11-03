@@ -17,13 +17,13 @@ variable "network_type" {
 variable "network_cidr" {
   description = "CIDR block for the cluster network"
   type        = string
-  default     = "10.0.0.0/24"
+  default     = "172.29.187.0/24"
 }
 
 variable "network_gateway" {
   description = "Gateway IP for the cluster network"
   type        = string
-  default     = "10.0.0.1"
+  default     = "172.29.187.1"
 }
 
 variable "control_plane_count" {
