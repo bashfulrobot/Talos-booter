@@ -15,6 +15,8 @@ Creates a complete Talos Linux cluster environment with configurable control pla
 
 ## Usage
 
+### Local libvirt
+
 ```hcl
 module "talos_cluster" {
   source = "github.com/YOUR_USERNAME/Talos-booter"
@@ -25,9 +27,20 @@ module "talos_cluster" {
   control_plane_count = 3
   worker_count        = 3
 }
+```
 
-provider "libvirt" {
-  uri = "qemu:///system"
+### Remote libvirt over SSH
+
+```hcl
+module "talos_cluster" {
+  source = "github.com/YOUR_USERNAME/Talos-booter"
+
+  cluster_name = "dev-lab"
+  iso_path     = "/path/to/talos.iso"
+  libvirt_uri  = "qemu+ssh://user@remote-host/system?keyfile=/path/to/ssh/key"
+
+  control_plane_count = 3
+  worker_count        = 3
 }
 ```
 

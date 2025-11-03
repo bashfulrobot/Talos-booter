@@ -99,7 +99,7 @@ variable "libvirt_pool" {
 }
 
 variable "libvirt_uri" {
-  description = "Libvirt connection URI"
+  description = "Libvirt connection URI. For local: 'qemu:///system'. For remote SSH: 'qemu+ssh://user@host/system?keyfile=/path/to/key'"
   type        = string
   default     = "qemu:///system"
 }
