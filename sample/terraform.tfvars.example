@@ -1,0 +1,27 @@
+# Required variables
+cluster_name = "dev-lab"
+iso_path     = "/path/to/talos.iso"
+
+# Network configuration
+# network_type    = "route"
+# network_cidr    = "172.29.187.0/24"
+# network_gateway = "172.29.187.1"
+
+# Control plane configuration
+# control_plane_count  = 3
+# control_plane_vcpu   = 4
+# control_plane_memory = 4096
+
+# Worker configuration
+# worker_count  = 3
+# worker_vcpu   = 4
+# worker_memory = 8192
+
+# Libvirt configuration
+# libvirt_pool = "default"
+
+# For local libvirt (default):
+# libvirt_uri = "qemu:///system"
+
+# For remote libvirt over SSH:
+# libvirt_uri = "qemu+ssh://user@remote-host/system?keyfile=/path/to/ssh/key"
