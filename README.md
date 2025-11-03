@@ -1,10 +1,10 @@
 # Talos-booter
 
-Terraform module for creating Talos Linux clusters on libvirt/KVM.
+Terraform module for bootstrapping Talos Linux VMs on libvirt/KVM for Omni deployment.
 
 ## Summary
 
-Creates a complete Talos Linux cluster environment with configurable control plane and worker nodes, networking, and multi-disk support. Designed for lab and testing environments, ready for provisioning with Omni.
+Boots VMs with Talos Linux ISO images, creating an infrastructure foundation ready to be provisioned and managed by Omni. Provides configurable control plane and worker nodes with networking and multi-disk support. The VMs boot from the ISO and await Omni to deploy and configure the actual Talos cluster.
 
 ## Prerequisites
 
