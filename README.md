@@ -56,6 +56,7 @@ module "talos_cluster" {
 - `network_type` - Network mode (default: "route")
 - `network_cidr` - Network CIDR (default: "172.29.187.0/24")
 - `network_gateway` - Gateway IP (default: "172.29.187.1")
+- `dhcp_start_offset` - DHCP range starting offset, reserves IPs 1 to offset-1 for static use (default: 31)
 
 ### Control Plane
 - `control_plane_count` - Number of nodes (default: 3)
@@ -76,6 +77,18 @@ module "talos_cluster" {
 - `libvirt_pool` - Storage pool name (default: "default")
 - `libvirt_uri` - Connection URI (default: "qemu:///system")
 - `autostart` - VMs automatically start on host boot (default: true)
+
+## Network Configuration
+
+### DHCP Reservations
+
+The module reserves the first 30 IPs in the network for static assignments (gateway, load balancers, etc.) by default. DHCP starts at offset 31.
+
+For example, with `network_cidr = "172.29.187.0/24"`:
+- Reserved for static use: `172.29.187.1` - `172.29.187.30`
+- DHCP range: `172.29.187.31` - `172.29.187.254`
+
+You can adjust the reservation size using `dhcp_start_offset`.
 
 ## CPU Configuration
 

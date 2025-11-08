@@ -20,9 +20,10 @@ module "talos_cluster" {
   iso_path     = var.iso_path
 
   # Network configuration
-  network_type    = var.network_type
-  network_cidr    = var.network_cidr
-  network_gateway = var.network_gateway
+  network_type       = var.network_type
+  network_cidr       = var.network_cidr
+  network_gateway    = var.network_gateway
+  dhcp_start_offset  = var.dhcp_start_offset
 
   # Control plane configuration
   control_plane_count     = var.control_plane_count

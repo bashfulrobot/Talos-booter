@@ -26,6 +26,12 @@ variable "network_gateway" {
   default     = "172.29.187.1"
 }
 
+variable "dhcp_start_offset" {
+  description = "Starting offset for DHCP range (reserves IPs 1 to offset-1 for static use like gateways and load balancers)"
+  type        = number
+  default     = 31
+}
+
 variable "control_plane_count" {
   description = "Number of control plane nodes"
   type        = number

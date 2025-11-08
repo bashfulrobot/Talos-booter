@@ -19,6 +19,31 @@ resource "libvirt_network" "cluster_network" {
   dns {
     enabled = true
   }
+
+  dhcp {
+    enabled = true
+  }
+
+  # Use xml block to configure DHCP range
+  # Reserves IPs 1 to dhcp_start_offset-1 for static assignments (gateway, load balancers, etc.)
+  xml {
+    xslt = <<-XSLT
+      <?xml version="1.0" ?>
+      <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+        <xsl:output omit-xml-declaration="yes" indent="yes"/>
+        <xsl:template match="node()|@*">
+          <xsl:copy>
+            <xsl:apply-templates select="node()|@*"/>
+          </xsl:copy>
+        </xsl:template>
+        <xsl:template match="/network/ip/dhcp">
+          <dhcp>
+            <range start='${cidrhost(var.network_cidr, var.dhcp_start_offset)}' end='${cidrhost(var.network_cidr, -2)}'/>
+          </dhcp>
+        </xsl:template>
+      </xsl:stylesheet>
+    XSLT
+  }
 }
 
 # Create volume for the ISO
